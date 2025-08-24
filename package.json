@@ -11,13 +11,20 @@
     "web": "expo start --web"
   },
   "dependencies": {
+    "@react-navigation/bottom-tabs": "^7.4.6",
+    "@react-navigation/drawer": "^7.5.7",
+    "@react-navigation/native": "^7.1.17",
+    "@react-navigation/stack": "^7.4.7",
+    "axios": "^1.11.0",
     "expo": "53.0.22",
     "expo-status-bar": "~2.2.3",
-    "nativewind": "latest",
+    "framer-motion": "^12.23.12",
+    "lucide-react-native": "^0.541.0",
+    "nativewind": "^4.1.23",
     "react": "19.0.0",
     "react-native": "0.79.5",
     "react-native-reanimated": "~3.17.4",
-    "react-native-safe-area-context": "5.4.0"
+    "react-native-safe-area-context": "^5.4.0"
   },
   "devDependencies": {
     "@babel/core": "^7.20.0",
@@ -26,10 +33,14 @@
     "eslint-config-expo": "^9.2.0",
     "eslint-config-prettier": "^10.1.2",
     "prettier": "^3.2.5",
-    "prettier-plugin-tailwindcss": "^0.5.11",
-    "tailwindcss": "^3.4.0",
+    "prettier-plugin-tailwindcss": "^0.5.14",
+    "tailwindcss": "^3.4.17",
     "typescript": "~5.8.3"
   },
   "main": "node_modules/expo/AppEntry.js",
-  "private": true
+  "private": true,
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": ""
 }
