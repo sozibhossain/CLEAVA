@@ -1,5 +1,5 @@
 import { View, StyleSheet } from 'react-native';
-import { NavigationContainer, type ParamListBase } from '@react-navigation/native';
+import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { createDrawerNavigator, type DrawerNavigationProp } from '@react-navigation/drawer';
 import { Ionicons } from '@expo/vector-icons';
@@ -24,7 +24,7 @@ type DrawerParamList = {
 };
 
 // Type guard for Ionicons
-const isValidIcon = (name: string): name is keyof typeof Ionicons.glyphMap => 
+const isValidIcon = (name: string): name is keyof typeof Ionicons.glyphMap =>
   name in Ionicons.glyphMap;
 
 const Tab = createBottomTabNavigator();
@@ -65,7 +65,14 @@ const TabNavigator = () => {
         },
       })}>
       <Tab.Screen name="Home" component={HomeScreen} />
-      <Tab.Screen name="Buchung" component={BuchungScreen} />
+      <Tab.Screen
+        name="Buchung"
+        component={BuchungScreen}
+        // options={{
+        //   headerShown: false,
+        //   tabBarStyle: { display: 'none' }, // 👈 hides the default tab bar
+        // }}
+      />
       <Tab.Screen
         name="Menu"
         component={MenuPlaceholder}
@@ -128,12 +135,12 @@ const styles = StyleSheet.create({
   },
   tabBar: {
     position: 'absolute',
-    bottom: 20,
+    // bottom: 20,
     left: 20,
     right: 20,
     elevation: 5,
     borderRadius: 35,
-    height: 70,
+    height: 80,
     backgroundColor: '#e0f2f1',
     shadowColor: '#000',
     shadowOpacity: 0.15,

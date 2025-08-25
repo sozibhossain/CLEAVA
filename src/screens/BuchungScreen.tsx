@@ -69,6 +69,7 @@ const BuchungScreen = () => {
         setCurrentStep(6) // Success screen
       }
     } catch (error) {
+      console.error(error)
       Alert.alert("Fehler", "Buchung konnte nicht übermittelt werden. Bitte versuchen Sie es erneut.")
     } finally {
       setIsLoading(false)
@@ -114,19 +115,19 @@ const BuchungScreen = () => {
     </View>
   )
 
-  const BottomNavigation = () => (
-    <View style={styles.bottomNav}>
-      <TouchableOpacity style={styles.navButton}>
-        <Ionicons name="home-outline" size={26} color="black" />
-      </TouchableOpacity>
-      <TouchableOpacity style={[styles.navButton, styles.navButtonActive]}>
-        <Ionicons name="add-circle" size={26} color="black" />
-      </TouchableOpacity>
-      <TouchableOpacity style={styles.navButton}>
-        <Ionicons name="menu-outline" size={26} color="black" />
-      </TouchableOpacity>
-    </View>
-  )
+  // const BottomNavigation = () => (
+  //   <View style={styles.bottomNav}>
+  //     <TouchableOpacity style={styles.navButton}>
+  //       <Ionicons name="home-outline" size={26} color="black" />
+  //     </TouchableOpacity>
+  //     <TouchableOpacity style={[styles.navButton, styles.navButtonActive]}>
+  //       <Ionicons name="add-circle" size={26} color="black" />
+  //     </TouchableOpacity>
+  //     <TouchableOpacity style={styles.navButton}>
+  //       <Ionicons name="menu-outline" size={26} color="black" />
+  //     </TouchableOpacity>
+  //   </View>
+  // )
 
   const Step1 = () => (
     <ScrollView style={styles.scrollView}>
@@ -238,36 +239,40 @@ const BuchungScreen = () => {
       <View style={styles.container}>
         <Text style={styles.sectionTitle}>Termin</Text>
         <Text style={styles.description}>
-          Here, you can let us know which day of the week and when our cleaning personnel will clean your apartment.
+          Here, you can let us know which day of the week and when our cleaning personnel will clean
+          your apartment.
         </Text>
 
         <Text style={styles.sectionTitle}>Do you have a preferred date?</Text>
 
         <TouchableOpacity
           style={styles.radioOption}
-          onPress={() => updateNestedData("appointment", "hasPreferredDate", true)}
-        >
+          onPress={() => updateNestedData('appointment', 'hasPreferredDate', true)}>
           <View style={styles.radioButton}>
-            {bookingData.appointment.hasPreferredDate && <View style={styles.radioButtonSelected} />}
+            {bookingData.appointment.hasPreferredDate && (
+              <View style={styles.radioButtonSelected} />
+            )}
           </View>
           <Text style={styles.radioText}>Yes, I have a preferred date.</Text>
         </TouchableOpacity>
 
         <TouchableOpacity
           style={styles.radioOption}
-          onPress={() => updateNestedData("appointment", "hasPreferredDate", false)}
-        >
+          onPress={() => updateNestedData('appointment', 'hasPreferredDate', false)}>
           <View style={styles.radioButton}>
-            {!bookingData.appointment.hasPreferredDate && <View style={styles.radioButtonSelected} />}
+            {!bookingData.appointment.hasPreferredDate && (
+              <View style={styles.radioButtonSelected} />
+            )}
           </View>
-          <Text style={styles.radioText}>No I haven't.</Text>
+          <Text style={styles.radioText}>No I haven &apos;t.</Text>
         </TouchableOpacity>
 
         {!bookingData.appointment.hasPreferredDate && (
           <View style={styles.noDateSection}>
             <Text style={styles.sectionTitle}>Kein Wunschtermin?</Text>
             <Text style={styles.description}>
-              In diesem Fall kümmern wir uns gerne um die Terminierung und machen Ihnen mögliche Terminvorschläge.
+              In diesem Fall kümmern wir uns gerne um die Terminierung und machen Ihnen mögliche
+              Terminvorschläge.
             </Text>
           </View>
         )}
@@ -282,7 +287,7 @@ const BuchungScreen = () => {
         </View>
       </View>
     </ScrollView>
-  )
+  );
 
   const Step3 = () => (
     <ScrollView style={styles.scrollView}>
@@ -629,7 +634,7 @@ const BuchungScreen = () => {
     <SafeAreaView style={styles.safeArea}>
       {currentStep < 6 && <Header title="Buchungsanfrage" />}
       {renderStep()}
-      {currentStep < 6 && <BottomNavigation />}
+      {/* {currentStep < 6 && <BottomNavigation />} */}
     </SafeAreaView>
   )
 }
@@ -638,7 +643,8 @@ const styles = StyleSheet.create({
   safeArea: {
     flex: 1,
     backgroundColor: "#ffffff",
-    marginTop: 30
+    marginTop: 30,
+    marginBottom: 100,
   },
   statusBar: {
     flexDirection: "row",
