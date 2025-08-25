@@ -50,26 +50,16 @@ const HomeScreen = () => {
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.header}>
-        <View style={styles.headerLeft}>
-          <View style={styles.logo}>
-            <Text style={styles.logoText}>C</Text>
-          </View>
-          <Text style={styles.brandText}>CLEAVA</Text>
+        <View >
+          <Image
+            source={require("../../assets/logo.png")}
+            width={100}
+            height={40}
+            style={{ resizeMode: "contain", width: 50, height: 40 }}
+          />
         </View>
         <View style={styles.headerRight}>
           <Ionicons name="notifications-outline" size={24} color="black" />
-          <View style={styles.statusIcons}>
-            <View style={styles.signalBars}>
-              <View style={styles.signalBar}></View>
-              <View style={styles.signalBar}></View>
-              <View style={styles.signalBar}></View>
-              <View style={styles.signalBarWeak}></View>
-            </View>
-            <Ionicons name="wifi" size={16} color="black" />
-            <View style={styles.battery}>
-              <View style={styles.batteryLevel}></View>
-            </View>
-          </View>
         </View>
       </View>
 
@@ -189,14 +179,12 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "space-between",
     alignItems: "center",
-    paddingHorizontal: 24,
+    paddingHorizontal: 16,
     paddingVertical: 12,
-    backgroundColor: "#ffffff",
+    borderBottomWidth: 1,
+    borderBottomColor: "#E5E7EB",
   },
-  headerLeft: {
-    flexDirection: "row",
-    alignItems: "center",
-  },
+ 
   logo: {
     width: 24,
     height: 24,
