@@ -7,22 +7,6 @@ const AblaufScreen = () => {
 
   return (
     <SafeAreaView style={styles.container}>
-      {/* Status Bar */}
-      <View style={styles.statusBar}>
-        <Text style={styles.statusTime}>9:41</Text>
-        <View style={styles.statusIcons}>
-          <View style={styles.signalBars}>
-            <View style={styles.signalBar}></View>
-            <View style={styles.signalBar}></View>
-            <View style={styles.signalBar}></View>
-            <View style={styles.signalBarWeak}></View>
-          </View>
-          <Ionicons name="wifi" size={16} color="black" />
-          <View style={styles.battery}>
-            <View style={styles.batteryLevel}></View>
-          </View>
-        </View>
-      </View>
 
       {/* Header */}
       <View style={styles.header}>
@@ -90,6 +74,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: "white",
+    paddingTop: 30,
   },
   statusBar: {
     flexDirection: "row",
@@ -158,7 +143,7 @@ const styles = StyleSheet.create({
   },
   stepContainer: {
     alignItems: "center",
-    marginBottom: 32,
+    marginBottom: 92,
   },
   stepIconContainer: {
     position: "relative",

@@ -12,7 +12,7 @@ import ImpressumScreen from '~/screens/ImpressumScreen';
 import DatenschutzScreen from '~/screens/DatenschutzScreen';
 import AktuellesScreen from '~/screens/AktuellesScreen';
 
-// Define Drawer ParamList for type safety
+// Enhanced Drawer ParamList
 type DrawerParamList = {
   MainTabs: undefined;
   Ablauf: undefined;
@@ -22,6 +22,10 @@ type DrawerParamList = {
   Aktuelles: undefined;
   BuchungDrawer: undefined;
 };
+
+// Type guard for Ionicons
+const isValidIcon = (name: string): name is keyof typeof Ionicons.glyphMap => 
+  name in Ionicons.glyphMap;
 
 const Tab = createBottomTabNavigator();
 const Drawer = createDrawerNavigator<DrawerParamList>();
@@ -35,24 +39,30 @@ const TabNavigator = () => {
       screenOptions={({ route }) => ({
         headerShown: false,
         tabBarShowLabel: false,
+        tabBarStyle: styles.tabBar,
         tabBarIcon: ({ focused }) => {
-          let iconName: keyof typeof Ionicons.glyphMap;
+          let iconName: string;
 
           if (route.name === 'Home') {
             iconName = focused ? 'home' : 'home-outline';
           } else if (route.name === 'Buchung') {
             iconName = focused ? 'add-circle' : 'add-circle-outline';
+          } else if (route.name === 'Menu') {
+            iconName = focused ? 'menu' : 'menu-outline';
           } else {
-            iconName = focused ? 'menu' : 'menu-outline'; // Fallback for Menu
+            iconName = 'ellipse-outline';
           }
 
           return (
             <View style={[styles.tabIcon, focused && styles.tabIconFocused]}>
-              <Ionicons name={iconName} size={26} color="#000" />
+              {isValidIcon(iconName) ? (
+                <Ionicons name={iconName} size={26} color="#000" />
+              ) : (
+                <Ionicons name="ellipse-outline" size={26} color="#000" />
+              )}
             </View>
           );
         },
-        tabBarStyle: styles.tabBar,
       })}>
       <Tab.Screen name="Home" component={HomeScreen} />
       <Tab.Screen name="Buchung" component={BuchungScreen} />
@@ -109,12 +119,12 @@ const styles = StyleSheet.create({
   tabIcon: {
     alignItems: 'center',
     justifyContent: 'center',
-    borderRadius: 24,
-    width: 48,
-    height: 48,
+    borderRadius: 30,
+    width: 50,
+    height: 50,
   },
   tabIconFocused: {
-    backgroundColor: '#90C8B9',
+    backgroundColor: '#90C8B9', // Matches image, consider '#2ecc71' for Buchung consistency
   },
   tabBar: {
     position: 'absolute',
@@ -122,14 +132,15 @@ const styles = StyleSheet.create({
     left: 20,
     right: 20,
     elevation: 5,
-    borderRadius: 30,
+    borderRadius: 35,
     height: 70,
-    paddingHorizontal: 25,
     backgroundColor: '#e0f2f1',
     shadowColor: '#000',
-    shadowOpacity: 0.1,
+    shadowOpacity: 0.15,
     shadowOffset: { width: 0, height: 4 },
     shadowRadius: 8,
+    paddingTop: 15,
+    paddingHorizontal: 30,
   },
 });
 

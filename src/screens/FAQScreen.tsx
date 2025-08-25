@@ -179,22 +179,6 @@ const FAQScreen = () => {
 
   return (
     <View style={styles.container}>
-      <View style={styles.statusBar}>
-        <Text style={styles.statusTime}>9:41</Text>
-        <View style={styles.statusIcons}>
-          <View style={styles.signalBars}>
-            <View style={styles.signalBar} />
-            <View style={styles.signalBar} />
-            <View style={styles.signalBar} />
-            <View style={styles.signalBarWeak} />
-          </View>
-          <Ionicons name="wifi" size={16} color="#000" />
-          <View style={styles.battery}>
-            <View style={styles.batteryLevel} />
-          </View>
-        </View>
-      </View>
-
       {/* Header */}
       <View style={styles.header}>
         <TouchableOpacity onPress={() => navigation.goBack()}>
@@ -234,6 +218,8 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: "white",
+    paddingTop: 30,
+    paddingBottom: 30
   },
   statusBar: {
     flexDirection: "row",

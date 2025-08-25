@@ -55,7 +55,7 @@ const HomeScreen = () => {
             source={require("../../assets/logo.png")}
             width={100}
             height={40}
-            style={{ resizeMode: "contain", width: 50, height: 40 }}
+            style={{ resizeMode: "contain", width: 80, height: 50 }}
           />
         </View>
         <View style={styles.headerRight}>
@@ -183,17 +183,18 @@ const styles = StyleSheet.create({
     paddingVertical: 12,
     borderBottomWidth: 1,
     borderBottomColor: "#E5E7EB",
+    marginTop: 20
   },
  
-  logo: {
-    width: 24,
-    height: 24,
-    backgroundColor: "#14B8A6",
-    borderRadius: 12,
-    marginRight: 8,
-    alignItems: "center",
-    justifyContent: "center",
-  },
+  // logo: {
+  //   width: 50,
+  //   height: 28,
+  //   backgroundColor: "#14B8A6",
+  //   borderRadius: 12,
+  //   marginRight: 8,
+  //   alignItems: "center",
+  //   justifyContent: "center",
+  // },
   logoText: {
     color: "#ffffff",
     fontSize: 12,

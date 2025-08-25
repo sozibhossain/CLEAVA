@@ -104,23 +104,6 @@ const BuchungScreen = () => {
     }))
   }
 
-  const StatusBar = () => (
-    <View style={styles.statusBar}>
-      <Text style={styles.statusTime}>9:41</Text>
-      <View style={styles.statusIcons}>
-        <View style={styles.signalBars}>
-          <View style={styles.signalBar}></View>
-          <View style={styles.signalBar}></View>
-          <View style={styles.signalBar}></View>
-          <View style={styles.signalBarWeak}></View>
-        </View>
-        <Ionicons name="wifi" size={16} color="black" />
-        <View style={styles.battery}>
-          <View style={styles.batteryLevel}></View>
-        </View>
-      </View>
-    </View>
-  )
 
   const Header = ({ title }: { title: string }) => (
     <View style={styles.header}>
@@ -644,7 +627,6 @@ const BuchungScreen = () => {
 
   return (
     <SafeAreaView style={styles.safeArea}>
-      <StatusBar />
       {currentStep < 6 && <Header title="Buchungsanfrage" />}
       {renderStep()}
       {currentStep < 6 && <BottomNavigation />}
@@ -656,6 +638,7 @@ const styles = StyleSheet.create({
   safeArea: {
     flex: 1,
     backgroundColor: "#ffffff",
+    marginTop: 30
   },
   statusBar: {
     flexDirection: "row",
