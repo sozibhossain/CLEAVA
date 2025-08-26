@@ -15,7 +15,7 @@ const BuchungScreen = () => {
     apartmentSize: "",
     cleaningInterval: "",
     householdSize: "",
-    cleaningPackage: "executive",
+    cleaningPackage: "",
     specialWish: "",
     appointment: {
       hasPreferredDate: false,
@@ -23,7 +23,7 @@ const BuchungScreen = () => {
       preferredTime: "",
     },
     personalInfo: {
-      salutation: "Herr",
+      salutation: "",
       firstName: "",
       lastName: "",
       phone: "",
@@ -63,7 +63,7 @@ const BuchungScreen = () => {
         },
       }
 
-      const response = await axios.post("http://localhost:5000/api/v1/booking/create-booking", payload)
+      const response = await axios.post("http://localhost:5001/api/v1/booking/create-booking", payload)
 
       if (response.data.success) {
         setCurrentStep(6) // Success screen
