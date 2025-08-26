@@ -1,8 +1,9 @@
 {
   "expo": {
-    "name": "my-expo-app",
-    "slug": "my-expo-app",
+    "name": "cleava",
+    "slug": "cleava",
     "version": "1.0.0",
+    "owner": "sozib",
     "web": {
       "favicon": "./assets/favicon.png"
     },
